@@ -1,0 +1,18 @@
+
+for ((i=1; i<=5; i++))
+do
+    # print leading spaces
+    for ((s=5; s>i; s--))
+    do
+        echo -n " "
+    done
+
+    # print numbers
+    for ((j=i; j>=1; j--))
+    do
+        echo -n "$j"
+    done
+    echo
+done
+echo "Pattern-2"
+
