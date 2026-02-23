@@ -1,26 +1,34 @@
+provide a 3 process output of this code:
+
 #include<stdio.h>
 #include<stdlib.h>
 
-void main(){
-    int n, AWT=0, ATAT =0;
+int main(){
+    int n;
+    float AWT=0, ATAT =0;
     int BT[100];
     int WT[100];
     int TAT[100];
 
     printf("\n Enter the number of processes: ");
     scanf("%d", &n);
+    
+    if(n > 100 || n <= 0) {
+        printf("Invalid number of processes!\n");
+        return 1;
+    }
 
     printf("\nEnter the burst time of the processes: ");
     for(int i = 0; i<n; i++){
         scanf("%d", &BT[i]);
     }
+    
     WT[0] = 0;
 
     for(int i = 1 ; i < n ; i++){
         WT[i] = 0;
-
         for(int j = 0; j<i ; j++){
-            WT[i] = WT[i] + BT[j];
+            WT[i] += BT[j];
         }
     }
 
@@ -37,7 +45,8 @@ void main(){
 
     AWT /= n;
     ATAT /= n;
-    printf("\nAverage Waiting time is: %d", AWT);
-    printf("\nAverage TurnAround time is: %d", ATAT);
+    printf("\nAverage Waiting time is: %.2f", AWT);
+    printf("\nAverage TurnAround time is: %.2f\n", ATAT);
+    
+    return 0;
 }
-
