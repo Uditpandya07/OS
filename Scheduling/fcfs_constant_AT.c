@@ -1,5 +1,3 @@
-provide a 3 process output of this code:
-
 #include<stdio.h>
 #include<stdlib.h>
 
